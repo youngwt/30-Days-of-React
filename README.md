@@ -15,3 +15,6 @@ Lesson two introduced the concept of extending Javascript to represent HTML, and
 ## Lesson 3
 
 In Lesson three I created my first React Component, a simple H1 tag with Hello World. I took the latest libraries from the React website and used the example in the book. At first I omitted the babel library to see if it is needed in my environment. I ran the code using the live preview of Brackets.io which served the page in chrome. On first try it did not work. Including the script tag for babel resolved this issue.
+
+## Lesson 4
+Lesson four introduced the concept of breaking down a page into sub components. Then it shows how these components can be represented in their own class, and the components can be nested within other components. This is done by using the class name as its own single HTML tag, e.g. <MyComponent />

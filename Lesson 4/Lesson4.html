@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <script src="../react.development.js"></script>
+        <script src="../react-dom.development.js"></script>
+        <script src="../browser.js"></script>
+    </head>
+    <body>
+    <div id="app"></div>
+        <script type="text/babel">
+            class App extends React.Component {
+                render() 
+                {
+                    return(
+                        <div classname="notificationsFrame">
+                            <div classname="panel"></div>
+                        </div>
+                        )
+                }
+            }
+
+            class Header extends React.Component {
+                render() {
+                    <div classname="header">
+                        <div classname="fa fa-more"></div>
+                        <span classname="title">Timeline</span>
+                        
+                        <input type="text"
+                            classname="searchText"
+                            placeholder="search ..." />
+                        
+                        <div classname="fa fa-search searchicon"></div>
+                    </div>
+                }
+            }
+
+            class Content extends React.Component {
+                render() {
+                    <div classname="content">
+                        <div classname="line"></div>
+                        
+                        {/* timeline item*/}
+
+                        <div classname="item">
+                            <img src="http://www.croopl.cl/UI/twitter/images/doug.jpg" />
+                            Doug
+                        </div>
+                        <span classname="time">An hour ago</span>
+                        <p> Ate lunch</p>
+                        <div classname="commentCount">2</div>                        
+                    </div>
+                }
+            }
+
+            class App extends React.Component {
+                render() {
+                    <div classname="notificationsFrame">
+                        <div classname="panel">
+                            <Header />
+                            <Content />
+                        </div>                        
+                    </div>
+                }
+            }
+        </script>
+    </body>
+</html>
