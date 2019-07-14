@@ -8,60 +8,59 @@
     <body>
     <div id="app"></div>
         <script type="text/babel">
-            class App extends React.Component {
-                render() 
-                {
-                    return(
-                        <div classname="notificationsFrame">
-                            <div classname="panel"></div>
-                        </div>
-                        )
-                }
-            }
-
             class Header extends React.Component {
                 render() {
-                    <div classname="header">
-                        <div classname="fa fa-more"></div>
-                        <span classname="title">Timeline</span>
+                    return (
+                    <div className="header">
+                        <div className="fa fa-more"></div>
+                        
+                        <span className="title">this.props.title</span>
                         
                         <input type="text"
-                            classname="searchText"
+                            className="searchText"
                             placeholder="search ..." />
                         
-                        <div classname="fa fa-search searchicon"></div>
+                        <div className="fa fa-search searchicon"></div>
                     </div>
+                    )
                 }
             }
 
             class Content extends React.Component {
                 render() {
-                    <div classname="content">
-                        <div classname="line"></div>
+                    return (
+                    <div className="content">
+                        <div className="line"></div>
                         
                         {/* timeline item*/}
 
-                        <div classname="item">
+                        <div className="item">
                             <img src="http://www.croopl.cl/UI/twitter/images/doug.jpg" />
                             Doug
                         </div>
-                        <span classname="time">An hour ago</span>
+                        <span className="time">An hour ago</span>
                         <p> Ate lunch</p>
-                        <div classname="commentCount">2</div>                        
+                        <div className="commentCount">2</div>                        
                     </div>
+                        )
                 }
             }
 
             class App extends React.Component {
                 render() {
-                    <div classname="notificationsFrame">
-                        <div classname="panel">
+                    return (
+                    <div className="notificationsFrame">
+                        <div className="panel">
                             <Header />
                             <Content />
                         </div>                        
                     </div>
+                    )
                 }
             }
+
+            var mountComponent = document.querySelector("#app");
+            ReactDOM.render(<App />, mountComponent);
         </script>
     </body>
 </html>

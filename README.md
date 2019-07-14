@@ -18,3 +18,6 @@ In Lesson three I created my first React Component, a simple H1 tag with Hello W
 
 ## Lesson 4
 Lesson four introduced the concept of breaking down a page into sub components. Then it shows how these components can be represented in their own class, and the components can be nested within other components. This is done by using the class name as its own single HTML tag, e.g. <MyComponent />
+
+### Lesson 4.5
+Ok so minor slip up here, because the example in the book didn't show the binding of the app class to the app div, I assumed it should be left out and carried on to lesson 5. I then got curious and tried to run my code. It. Did. Not. Work. I discovered the hard way that className must be camel-cased, and also that the render function must have a return statement and that basically all the html sits within this return statement. The link for an avatar image does not work, also the book does not include any CSS so I think I will add my own before progressing onto chapter 5.
