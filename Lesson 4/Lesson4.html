@@ -4,6 +4,49 @@
         <script src="../react.development.js"></script>
         <script src="../react-dom.development.js"></script>
         <script src="../browser.js"></script>
+        <script src="https://kit.fontawesome.com/0afba41861.js"></script>
+        
+        <style>
+            .header {
+                background-color: cadetblue;
+                width: 100%;
+                text-align: center;
+                line-height: 42px;
+                color: white;
+            }
+            
+            .menuIcon {
+                float:left;
+                line-height: 42px;
+            }
+            
+            .header .title {
+                text-align: center;
+            }
+            
+            .searchicon, .searchText {
+                float: right;
+                line-height: 42px;
+            }
+            
+            
+            
+            .content {
+                width: 100%;
+            }
+            
+            .avatar {
+                width: 24px;
+                height: 24px;
+                margin-left: 15px;
+            }
+            
+            .commentCount {
+                float: right;
+                margin-right: 25px;
+            }
+        
+        </style>
     </head>
     <body>
     <div id="app"></div>
@@ -12,7 +55,7 @@
                 render() {
                     return (
                     <div className="header">
-                        <div className="fa fa-more"></div>
+                        <div className="menuIcon fas fa-bars"></div>
                         
                         <span className="title">this.props.title</span>
                         
@@ -35,12 +78,14 @@
                         {/* timeline item*/}
 
                         <div className="item">
-                            <img src="http://www.croopl.cl/UI/twitter/images/doug.jpg" />
+                            <span className="avatar fa fa-rocket"></span>
                             Doug
                         </div>
                         <span className="time">An hour ago</span>
                         <p> Ate lunch</p>
-                        <div className="commentCount">2</div>                        
+                        <div className="commentCount">
+                            <i className="far fa-thumbs-up" />
+                            2</div>                        
                     </div>
                         )
                 }
