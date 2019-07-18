@@ -25,3 +25,6 @@ Ok so minor slip up here, because the example in the book didn't show the bindin
 ## Lesson 5
 In this lesson I learnt to substitute variables into react components. The syntax is similar to what I have seen with handlebars, using the {} symbols to wrap a variable inside JSX. For static data you simply add the data as an attribute to the component tag, and then access it within the render function as "this.props.myAttr". You can also define a variable with a given name and assign it with "const {myVar} = this.props;" and the JSX compiler will map the myVar prop to the variable.
 I also discovered the importance of making sure every render function returns clear parent tag like a div, the compiler will not accept sibling tags at the top level.
+
+## Lesson 6
+In this lesson I learnt about adding state to components. Components need to manage their own state and this is done through the this.setState keyword. It is also worth noting that all react constructors require super(props) in their first line. The book recommends that state date should be as simple as possible, avoid storing objects or relying on computations within the state object as this can be wasteful of CPU resources.

@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <script src="../react.development.js"></script>
+        <script src="../react-dom.development.js"></script>
+        <script src="../browser.js"></script>
+        <script src="https://kit.fontawesome.com/0afba41861.js"></script>
+        
+        <style>
+            .header {
+                background-color: cadetblue;
+                width: 100%;
+                text-align: center;
+                line-height: 42px;
+                color: white;
+            }
+            
+            .menuIcon {
+                float:left;
+                line-height: 42px;
+            }
+            
+            .header .title {
+                text-align: center;
+            }
+            
+            .searchicon, .searchText {
+                float: right;
+                line-height: 42px;
+            }
+            
+            
+            
+            .content {
+                width: 100%;
+            }
+            
+            .avatar {
+                width: 24px;
+                height: 24px;
+                margin-left: 15px;
+            }
+            
+            .commentCount {
+                float: right;
+                margin-right: 25px;
+            }
+        
+        </style>
+    </head>
+    <body>
+    <div id="app"></div>
+        <script type="text/babel">
+
+            const activities = [{
+                timestamp : new Date().getTime(),
+                text: "Ate lunch",
+                user : {
+                    id: 1,
+                    name: 'Nate',
+                    avatar: "fa fa-rocket",
+                },
+                comments : {
+                    from: 'Bob',
+                    text: "Me too!"
+                }
+            }];
+                    
+            class Header extends React.Component {
+                
+                constructor(props) {
+                    super(props);
+                    
+                    this.state = {
+                        searchVisible:false
+                    };                    
+                };
+                
+                // toggle invisibility
+                showSearch() {
+                  this.setState({
+                      searchVisible: !this.state.searchVisible
+                  })  
+                };
+                
+                render() {
+                    let searchInputClasses = ["searchInput"];
+                        
+                        if(this.state.searchVisible){
+                            searchInputClasses.push("active");
+                        }
+                    
+                    return (
+                                                
+                    <div className="header">
+                        <div className="menuIcon fas fa-bars"></div>
+                        
+                        <span className="title">{this.props.title}</span>
+                        
+                        <input type="text"
+                            className={searchInputClasses.join(' ')}
+                            placeholder="search ..." />
+                        
+                        <div 
+                            onClick={this.showSearch.bind(this)}
+                            className="fa fa-search searchicon"></div>
+                    </div>
+                    )
+                }
+            }
+
+            class Content extends React.Component {
+                render() {
+                    
+                    const {activities} = this.props;
+                    
+                    return (
+                    <div className="content">
+                        <div className="line"></div>
+                        
+                        {/* timeline item*/}
+                        {activities.map((activity) => {
+                            return(
+                               <ActivityItem activity={activity} />
+                                ); 
+                            })}
+                    </div>
+                        )
+                }
+            }
+
+            class ActivityItem extends React.Component {
+                render()
+                {
+                    const {activity} = this.props;  
+                    
+                return(
+                    <div className="item">
+                        <span className={activity.user.avatar}></span>
+                        <span>{activity.user.name}</span>
+
+                        <span className="time">{activity.timestamp}</span>
+                        <p> {activity.text}</p>
+                        <div className="commentCount">
+                            <i className="far fa-thumbs-up" />
+                            {activity.comments.length}
+                        </div>
+                    </div>
+                    );
+                }
+            }
+
+            class App extends React.Component {
+                render() {
+                    return (
+                    <div className="notificationsFrame">
+                        <div className="panel">
+                            <Header title="timeline"/>
+                            <Content activities={activities} />
+                        </div>                        
+                    </div>
+                    )
+                }
+            }
+
+            var mountComponent = document.querySelector("#app");
+            ReactDOM.render(<App />, mountComponent);
+        </script>
+    </body>
+</html>
